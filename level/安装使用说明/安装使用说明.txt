@@ -1,6 +1,0 @@
-后台地址：http://你的网址/admin    账户：admin    密码：123456
-前台网址：http://你的网址/         测试账户：system   密码：123456
-
-安装说明：
-1、把数据库下的xingfu.sql导入到数据库中
-2、请用专业软件打开include/config.php 数据库连接配置文件。比如可以使用 EditPlus   和 Adobe Dreamweaver CS6   打开，请勿使用记事本打开，可能会造成乱码.
