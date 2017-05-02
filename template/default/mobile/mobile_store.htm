@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 在线订餐</title>
+{template mobile_common}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">消费记录</span> <a href="{url mobile_user}" class="nobg _right">会员中心</a></nav>
+</header>
+<div class="viewport">
+  <div class="newList_view">
+    <ul class="listdz" id="listdz">
+     <li><div class="store"><p>消费编号</p><p>消费金额</p><p>消费来源</p><p>消费时间</p></div></li>
+    </ul>
+    <div class="reloading">加载更多 >></div><input id="limit" name="limit" type="hidden" value="0">
+  </div>
+</div>
+<script language="javascript">
+function reloading(){
+  limit = parseInt($("#limit").val());
+  $(".reloading").addClass('showloading').html('');
+  $.getJSON(get_url('&act=get_store&limit='+limit),function(res){										  
+	for(var i=0;i<res.length;i++){
+      $('#listdz').append('<li><div class="store"><p>'+res[i]['orderid']+'</p><p> '+res[i]['money']+' </p><p>'+res[i]['message']+'</p><p>'+res[i]['addtime']+'</p></div></li>');
+	}
+	if(res.length<10){
+	  $(".reloading").removeClass('showloading').html("已经到最后了");
+	}else{
+      $(".reloading").removeClass('showloading').html('加载更多 >>');
+	}
+    $("#limit").val(limit+10); 
+  }); 
+}
+$(document).ready(function() {//公用接口函数					   
+  reloading();
+  $(".reloading").click(function(){
+   reloading();						 
+  });
+});
+</script>
+{template mobile_footnav}
+</html>

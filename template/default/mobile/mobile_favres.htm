@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 在线订餐</title>
+{template mobile_common}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">我的收藏</span> <a href="{url mobile_user}" class="nobg _right">会员中心</a></nav>
+</header>
+<div class="viewport">
+  <div class="newList_view">
+    <!--{eval $favres = $this->get_food($this->sqlstr);}-->
+    <!--{if is_array($favres)}-->
+    <!--{loop $favres $value}-->
+    <div class="newList">
+      <div class="imgurl"><img  src="{self hempdir}images/spacer.png" data-original="{$value['goods_thumb']}" class="lazy"></div>
+      <div class="content">
+        <div class="name"><span class="favres" id="_favres_{$value['id']}" aid="{$value['id']}">{if $value['favres']}取消收藏{else}收藏餐品{/if}</span>{$value['name']}</div>
+        <div class="price">
+          <div id="_food_list_{$value['id']}">{if $value['checked']}<span class="zero" onClick="javascript:addCart('{$value['id']}');"></span>{else}已售完{/if}</div>
+          <strong>¥{$value['market']}</strong>
+        </div>
+      </div>
+    </div>
+    <!--{/loop}-->
+    <!--{else}-->
+  <div class="tips_view mitu_01">
+    <div class="tips_msg">
+      <h3>还没收藏过餐品</h3>
+      <p>在订餐页点击"<em>收藏餐品</em>"即可</p>
+    </div>
+  </div>
+    <!--{/if}-->
+  </div>
+</div>
+{template mobile_footnav}
+</html>

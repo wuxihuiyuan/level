@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html style="background: white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>收入详情</title>
+    {template ../common}
+    {style {self tempdir}css/common.css}
+    {style {self tempdir}css/style.css}
+    {script {self tempdir}js/common.js}
+    {script {self tempdir}js/jquery-1.8.3.js}
+    {script {self tempdir}js/income.js}
+</head>
+<body>
+<div class="pb80">
+    <div class="tab-head">
+    <input id="hd_referrer" type="hidden" />
+      <span>
+      	<a href="javascript:history.back();">
+        	<i></i>
+    	</a>
+      </span>
+        收入详情
+    </div>
+    <div class="income-row">
+        <div class="income-row-child">
+            <div class="row-tod to">
+                <span class="in-income">今日收入</span>
+                <p class="num"><span class="rmb">¥</span>{self todaymoney['margin']}</p>
+                <div class="income-more"></div>
+                <div class="more">查看更多</div>
+            </div>
+            <ul class="more-slide">
+                <li><span>提成奖:</span>{self todaymoney['money']}<b>¥</b></li>
+                <li><span>分红奖:</span>{self todaymoney['floormoney']}<b>¥</b></li>
+                <li><span>招商奖:</span>{self todaymoney['refereemoney']}<b>¥</b></li>
+                <li><span>提现金:</span>{self todaymoney['outmoney']}<b>¥</b></li>
+                <li style="border: none"><span>合计:</span>{self todaymoney['margin']}<b>¥</b></li>
+            </ul>
+        </div>
+        <div class="income-row-child">
+            <div class="row-yest ye">
+                <span class="in-income">昨日收入</span>
+                <p class="num"><span class="rmb">¥</span>{self yestodaymoney['margin']}</p>
+                <div class="income-more"></div>
+                <div class="more">查看更多</div>
+            </div>
+            <ul class="more-slide">
+                <li><span>提成奖:</span>{self yestodaymoney['money']}<b>¥</b></li>
+                <li><span>分红奖:</span>{self yestodaymoney['floormoney']}<b>¥</b></li>
+                <li><span>招商奖:</span>{self yestodaymoney['refereemoney']}<b>¥</b></li>
+                <li><span>提现金:</span>{self yestodaymoney['outmoney']}<b>¥</b></li>
+                <li style="border: none"><span>合计:</span>{self yestodaymoney['margin']}<b>¥</b></li>
+            </ul>
+        </div>
+        <div class="income-row-child">
+            <div class="row-all all">
+                <span class="in-income">全部收入</span>
+                <p class="num"><span class="rmb">¥</span>{self allmoney['margin']}</p>
+                <div class="income-more"></div>
+                <div class="more">查看更多</div>
+            </div>
+            <ul class="more-slide">
+                <li><span>提成奖:</span>{self allmoney['money']}<b>¥</b></li>
+                <li><span>分红奖:</span>{self allmoney['floormoney']}<b>¥</b></li>
+                <li><span>招商奖:</span>{self allmoney['refereemoney']}<b>¥</b></li>
+                <li><span>提现金:</span>{self allmoney['outmoney']}<b>¥</b></li>
+                <li style="border: none"><span>合计:</span>{self allmoney['margin']}<b>¥</b></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{template mobile_footer}
+</body>
+
+</html>

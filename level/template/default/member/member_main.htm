@@ -1,0 +1,60 @@
+{template member_header}
+<div id="main" >
+  <div class="left">{template member_left}</div>
+  <div class="right">
+    <div id="system_info">
+      <div id="message_ico"></div>
+     <a href="javascript:;">一个互帮互助的爱心平台，竭力让大家共同成长，事业婚姻两不误！</a>爱之情婚恋交友网地址：<a href="http://www.izhenqing.com" target="_blank">wwww.izhenqing.com</a>&nbsp;&nbsp;&nbsp;&nbsp;<a>有问题请咨询客服QQ 250502000&nbsp;&nbsp;&nbsp;&nbsp;</a> <img src="{self tempdir}images/new.gif" width="35" height="13" alt="new" /></div>
+    <div id="index_pool">
+      <div class="index_title">
+        <div class="title_l">收入数据</div>
+        <div class="title_r">&nbsp;</div>
+      </div>
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <th class="td_line bt_line"></th>
+          <th class="td_line">直荐奖励</th>
+          <th class="td_line">分红奖励</th>
+          <th class="td_line">股东奖励</th>
+          <th class="td_line">报单奖励</th>
+          <th>合计</th>
+        </tr>
+        <tr>
+          <th class="td_line bt_line">今日</th>
+          <td>{self todaymoney['refereemoney']}元</td>
+          <td>{self todaymoney['floormoney']}元</td>
+          <td>{self todaymoney['money']}元</td>
+          <td class="td_line">{self todaymoney['regmoney']}元</td>
+          <td><span class="text_red14px">{self todaymoney['inmoney']}</span>元</td>
+        </tr>
+        <tr>
+          <th class="td_line bt_line">昨天</th>
+          <td>{self yestodaymoney['refereemoney']}元</td>
+          <td>{self yestodaymoney['floormoney']}元</td>
+          <td>{self yestodaymoney['money']}元</td>
+          <td class="td_line">{self yestodaymoney['regmoney']}元</td>
+          <td><span class="text_red14px">{self yestodaymoney['inmoney']}</span>元</td>
+        </tr>
+        <tr>
+          <th class="td_line bt_line">全部</th>
+          <td>{self allmoney['refereemoney']}元</td>
+          <td>{self allmoney['floormoney']}元</td>
+          <td>{self allmoney['money']}元</td>
+          <td class="td_line">{self allmoney['regmoney']}元</td>
+          <td><span class="text_red14px">{self allmoney['inmoney']}</span>元</td>
+        </tr>
+      </table>
+    </div>
+<div id="index_diagram">
+  <div id="chartspie" style="width:49%;float:left;"></div>
+  <div id="chartscolumn" style="width:49%;float:left;"></div>
+</div>
+<script language="javascript"> 
+$(function() { 
+  chart('chartscolumn',"column",['综合统计'],[{name:'收入',data:[{self allmoney[inmoney]}]},{name:'支出',data:[{self allmoney[outmoney]}]},{name:'利润',data: [{self allmoney[margin]}]}]);
+   chart('chartspie',"pie",['综合统计'],[['分红奖励',{self allmoney[floormoney]}],['直荐奖励',{self allmoney[refereemoney]}],['股东奖励',{self allmoney[money]}],['报单奖励',{self allmoney[regmoney]}]]);
+});
+</script>
+  </div>
+</div>
+{template member_footer}

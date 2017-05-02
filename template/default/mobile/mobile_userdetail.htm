@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>基本信息</title>
+    {template ../common}
+    {style {self tempdir}css/common.css}
+    {style {self tempdir}css/style.css}
+    {script {self tempdir}js/common.js}
+    {script {self tempdir}js/jquery-1.8.3.js}
+    {script {self tempdir}js/admin-detail.js}
+</head>
+<body>
+<div class="pb80">
+    <div class="tab-head">
+        <span>
+           <a href="javascript:history.back();">
+            <i></i>
+            </a>
+        </span>
+        个人中心
+    </div>
+    <div class="info-box clearBoth">
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">会员账号</span>
+            </div>
+            <div class="text">{member username}
+                <!--<i></i>-->
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">电子邮箱</span>
+            </div>
+            <div class="text">{member email}
+                <!--<i></i>-->
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">手机号码</span>
+            </div>
+            <div class="text">{member userphone}
+                <!--<i></i>-->
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">会员姓名</span>
+            </div>
+            <div class="text">{member truename}
+                <!--<i></i>-->
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">身份证号码</span>
+            </div>
+            <div class="text">{member idcard}
+                <!--<i></i>-->
+            </div>
+        </div>
+        <div class="info">
+            <div class="info-list">
+                <span class="info-star">*</span>
+                <span class="info-title">联系QQ</span>
+            </div>
+            <div class="text">{member qq}
+                <!--<i></i>-->
+            </div>
+        </div>
+    </div>
+    <a href="{url mobile_logout}">
+    <div class="logout">
+        退&nbsp;出&nbsp;登&nbsp;录
+    </div>
+    </a>
+</div>
+{template mobile_footer}
+</body>
+</html>

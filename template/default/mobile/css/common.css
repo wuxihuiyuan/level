@@ -1,0 +1,335 @@
+html{
+    color:#000;
+    /*background: #e9ecf3;*/
+    background: url("../images/html-bg.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td{
+    margin:0;padding:0;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset, img{
+    border:0;
+}
+em, strong{
+    font-style:normal;
+    font-weight:normal;
+}
+li{
+    list-style:none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-size:100%;
+    font-weight:normal;
+}
+body, input, button, textarea{
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+}
+a{
+    text-decoration:none;!important
+    outline:none;
+}
+a:hover{
+    cursor:pointer;
+    text-decoration:none;!important
+}
+th, td{vertical-align:top;}
+.clearBoth:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.tab-head{
+    width: 100%;
+    line-height:40px;
+    text-align: center;
+    background: #000000;
+    color: white;
+    margin: 0 auto 5px;
+    position: relative;
+}
+.tab-head>span{
+    float: left;
+    /*background: #77e0ff;*/
+    border-radius: 50%;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 12px;
+    top: 8px;
+}
+.tab-head>span i{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    background: url("../images/ico.png") -3px -83px;
+}
+.pb80{
+    padding-bottom: 80px;
+}
+.pb80:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/*-----------------footer-----------------*/
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 88;
+    background: white;
+}
+.foot-nav{
+    width: 100%;
+}
+.foot-nav li a{
+    box-sizing: border-box;
+    width: 20%;
+    min-width: 60px;
+    padding: 5px;
+    float: left;
+    line-height: 13px;
+    color: #000;
+    font-size: 10px;
+}
+.foot-nav li a i{
+    display: block;
+    margin: 0 auto 2px;
+    width: 25px;
+    height: 25px;
+}
+.footer .foot-nav .nav1{
+    background: url("../images/ico.png") -100px -63px;
+}
+.footer .foot-nav .nav2{
+    background: url("../images/ico.png") -100px -94px;
+}
+.footer .foot-nav .nav3{
+    background: url("../images/ico.png") -101px -122px;
+}
+.footer .foot-nav .nav4{
+    background: url("../images/ico.png") -100px -2px;
+}
+.footer .foot-nav .nav5{
+    background: url("../images/ico.png") -101px -31px;
+}
+.foot-nav li p{
+    text-align: center;
+}
+.top{
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    right: 10px;
+    top: -77%;
+    color: white;
+    background: #d6a331;
+    border-radius: 50%;
+    line-height: 27px;
+    text-align: center;
+    font-size: 20px;
+    z-index: 77;
+    opacity: 0.5;
+}
+/*-------------------header-------------------*/
+#header{
+    width: 100%;
+    background: #000;
+    left: 0;
+    top:0;
+    box-sizing: border-box;
+    /*margin-top:5px;*/
+}
+.logo{
+    width: 40%;
+    height:40px;
+    background: url("../images/logo.png") center no-repeat;
+    /*background-size: cover;*/
+    float: left;
+}
+.slidetoggle i {
+    float: right;
+    margin: 10px 16px 0 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico.png)no-repeat -33px -183px;
+}
+.side-menu{
+    display: none;
+    width: 100%;
+    right: 0;
+    top: 40px;
+    position: absolute;
+    background: #4b3110;
+    z-index: 99;
+    -webkit-overflow-scrolling: touch;
+    backface-visibility: hidden;
+}
+.side-menu>li{
+    line-height: 50px;
+    border-bottom: 1px solid rgb(241, 241, 241);
+    position: relative;
+    /*background: url("../images/list_bg.png") no-repeat center;*/
+    /*background-size: cover;*/
+    background: white;
+}
+.side-menu>li:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.side-menu>li>span{
+    color: #d1d1d1;
+    position: absolute;
+    width: 20px;
+    text-align: center;
+    font-size: 30px;
+    right:10px;
+    top: 0;
+}
+.side-menu>li>a{
+    color: #000000;
+    display: inline-block;
+    width: 100%;
+}
+.side-menu>li>a>div{
+    float: left;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: relative;
+    margin: 9px;
+}
+.side-menu>li div i.ico{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    background: url("../images/ico.png") no-repeat;
+}
+.side-menu>li div i.i1{
+    background-position: -5px -113px;
+}
+.side-menu>li div i.i2{
+    background-position: -4px -59px;
+}
+.side-menu>li div i.i3{
+    background-position: -4px -192px;
+}
+.side-menu>li div i.i4{
+    background-position: -5px -165px;
+}
+.side-menu>li div i.i5{
+    background-position: -5px -138px;
+}
+.side-menu>li div i.i6{
+    background-position: -30px -94px;
+}
+.side-menu>li div i.i7{
+    background-position: -29px -28px;
+}
+.side-menu>li div i.i8{
+    background-position: -30px -73px;
+}
+.side-menu>li div i.i9{
+    background-position: -30px -137px;
+}
+.side-menu>li div i.i10{
+    background-position: -30px -6px;
+}
+.side-menu>li div i.i11{
+    background-position: -33px -268px;
+}
+.side-menu.menu-detail{
+    box-sizing: border-box;
+    padding: 2%;
+}
+.side-menu>li a .bg1{
+    background: #ff5abf;
+}
+.side-menu>li a .bg2{
+    background: #ff914e;
+}
+.side-menu>li a .bg3{
+    background: #a056ff;
+}
+.side-menu>li a .bg4{
+    background: #5e62ff;
+}
+.side-menu>li a .bg5{
+    background: #ff7677;
+}
+.side-menu>li a .bg6{
+    background: #ff53c3;
+}
+.side-menu>li a .bg7{
+    background: #10b377;
+}
+.side-menu>li a .bg8{
+    background: #2653ff;
+}
+.side-menu>li a .bg9{
+    background: #4dc6ee;
+}
+.side-menu>li a .bg10{
+    background: #e4a933;
+}
+.side-menu>li a .bg11{
+    background: #e4143b;
+}
+.side-menu .menu-detail{
+    width: 100%;
+    /*background: black;*/
+    box-sizing: border-box;
+    padding-left: 5%;
+}
+.side-menu .menu-detail li{
+    width: 100%;
+    padding-left:1%;
+}
+.side-menu .menu-detail li .menu-ico{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.side-menu .menu-detail li .m1{
+    background: #ff7677;
+}
+.side-menu .menu-detail li .m2{
+    background: #ff53c3;
+}
+.side-menu .menu-detail li .m3{
+    background: #10b377;
+}
+.side-menu .menu-detail li .m4{
+    background: #2653ff;
+}
+.side-menu .menu-detail li .m5{
+    background: #4dc6ee;
+}
+.side-menu .menu-detail li a{
+    padding-left: 1%;
+    color: black;
+    display: inline-block;
+    width: 90%;
+}

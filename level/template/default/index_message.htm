@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>{config sitename}</title>
+<meta name="keywords" content="{self keywords}" />
+<meta name="description" content="{self description}" />
+{template common}
+</head>
+<body>
+{template header}
+<script language="javascript">setTimeout("{self scode};",8000);</script>
+<div class="login_layout" id="main">
+  <div class="login_title">
+    <h2>信息提醒</h2>
+  </div>
+  <div class="login_Content">
+    <div class="login_Explain {echo $this->msgRight ? 'login_Explain_Right' : 'login_Explain_Wrong'}">
+      <h2>{self message}</h2>
+      <p>1.网页会自动跳转，如果在5秒钟后仍跳转，请点击 <a href="{self jcode}" class="blue">手动跳转</a></p>
+      <p>2.如果你想返回到上一页继续操作，请点击 <a href="javascript:history.back(-1)" class="blue">返回上一页</a> </p>
+    </div>
+  </div>
+</div>
+{template footer}
+</body>
+</html>

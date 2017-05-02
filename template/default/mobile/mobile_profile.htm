@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 会员登录</title>
+{template mobile_common}
+{script {self tempdir}js/profile.js}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">账户设置</span> <a href="{url mobile_user}" class="nobg _right">会员中心</a> </nav>
+</header>
+<div class="viewport">
+<form action="" id="form1" method="post" onSubmit="return checkform()">
+  <div class="user_nav list_nav">
+    <ul>
+      <li><div class="formleft">当前用户</div><span class="input">{member username}</span><div style="clear:both;"></div></li>
+      <li><div class="formleft">电子邮箱</div><span class="input"><!--{if $this->member['email']}-->{member email}<!--{else}-->请电脑登陆设置并验证邮箱<!--{/if}--></span><div style="clear:both;"></div></li>
+      <li><div class="formleft">手机号码</div><span class="input"><!--{if $this->member['userphone']}-->{member userphone}<!--{else}-->请电脑登陆设置并绑定手机<!--{/if}--></span><div style="clear:both;"></div></li>
+      <li><div class="formleft">姓名昵称</div><input type="text" id="truename" name="truename" placeholder="请填写你的姓名或昵称" value="{member truename}"><div style="clear:both;"></div></li>
+    </ul>
+  </div>
+  <div class="form form2">{form('submit','确定修改','submit')}</div>
+</form>
+</div>
+{template mobile_footnav}
+</body>
+</html>

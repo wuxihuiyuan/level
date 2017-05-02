@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>地址管理</title>
+        {template ../common}
+    {style {self tempdir}css/common.css}
+    {style {self tempdir}css/style.css}
+    {script {self tempdir}js/common.js}
+    {script {self tempdir}js/jquery-1.8.3.js}
+    {script {self tempdir}js/product.js}
+</head>
+<body>
+<div class="pb80">
+    <div class="tab-head">
+        <span>
+             <a href="javascript:history.back();">
+            <i></i>
+            </a>
+        </span>
+        地址管理
+    </div>
+    <form action="" method="POST" onsubmit="return checkform()">
+    <input type="hidden" name="id" value="{self detail['id']}">
+    <div class="edit-addr">
+        <h4>联系人</h4>
+        <div class="addr-info">
+            <div class="bor-bt rela">
+                <span class="addr-info-title">姓名</span>
+                <input type="text" value="{self detail['name']}" name="name">
+                <span class="clear">-</span>
+            </div>
+            <div class="rela">
+                <span class="addr-info-title">手机</span>
+                <input type="text" value="{self detail['mobile']}" name="mobile">
+                <span class="clear">-</span>
+            </div>
+        </div>
+        <h4>联系地址</h4>
+        <div class="addr-info">
+            <div class="rela">
+                <span class="addr-info-title">地址</span>
+                <input type="text" value="{self detail['address']}" name="address">
+                <span class="clear">-</span>
+            </div>
+        </div>
+        <h4>是否默认</h4>
+        <div class="addr-info">
+            <input type="radio" name="is_default" id="yes" value="1" {if {self detail['is_default']} == 1}checked="checked"{/if}/><label for="yes" style="margin-right: 10px;">是</label>
+            <input type="radio" name="is_default" id="no" value="0" {if {self detail['is_default']} == 0}checked="checked"{/if} /><label for="no">否</label>
+        </div>
+    </div>
+    {form('submit','确 定','submit','','class=\'edit-button\'')}
+    </form>
+</div>
+{template mobile_footer}
+</body>
+</html>

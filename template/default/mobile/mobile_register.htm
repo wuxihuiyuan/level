@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 会员注册</title>
+{template mobile_common}
+{script {self tempdir}js/register.js}
+</head>
+<body>
+<header class="header">
+  <nav><a href="javascript:history.back();" class="back">返回</a><span class="title">会员注册</span><a href="{url mobile_login}" class="nobg _right">注册协议</a></nav>
+</header>
+<div class="viewport form">
+  <form action="" id="form1" method="post" onSubmit="return checkform()">
+    <input type="text" id="username" name="username" onBlur="checkusername()" onFocus="getusername();" placeholder="用户名">
+    <p class="tips" id="usernametip"></p>
+    <input type="password" id="password" name="password" onKeyUp="pwStrength(this.value);checkpassword();" onBlur="checkpassword()" onFocus="getpassword();"  placeholder="登陆密码">
+    <p class="tips" id="passwordtip"></p>
+    <div class="grade-pwd"><span>密码强度</span>
+      <ul>
+        <li class="block01 minus" _minus='0,1'></li>
+        <li class="block02 minus" _minus='0,1'></li>
+        <li class="block03 minus" _minus='0,1'></li>
+      </ul>
+      <span class="grade-text"></span> </div>
+    <input name="cpassword" id="cpassword" type="password" onBlur="checkcpassword()" onFocus="getcpassword();" placeholder="确认密码"/>
+    <p class="tips" id="cpasswordtip"></p>
+    {form('submit','同意会员协议并注册','submit')}
+  </form>
+</div>
+{template mobile_footnav}
+</body>
+</html>

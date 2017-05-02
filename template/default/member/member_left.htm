@@ -1,0 +1,44 @@
+<div class="lefttop">
+	<a href="{echo Purl("?mod=member ")}">
+		<div class="ico i1"></div>
+		<span style="line-height: 22px;font-size: 16px;">系统首页</span></a>
+	<a href="{echo Purl("?mod=member&act=imessage ")}">
+		<div class="ico i2"></div>
+		<span style="line-height: 22px;font-size: 16px;">站内信件</span> <span class="text_red_10px" id="myread">{if $this->read}({self read}){/if}</span></a>
+	<a href="{echo Purl("?mod=member&act=notice ")}">
+		<div class="ico i3"></div>
+		<span style="line-height: 22px;font-size: 16px;">系统公告</span></a>
+	<a href="{echo Purl("?mod=member&act=capital&type=list ")}">
+		<div class="ico i4"></div>
+		<span style="line-height: 22px;font-size: 16px;">资金明细</span></a>
+	<a href="{echo Purl("?mod=member&act=capital&type=myatm ")}">
+		<div class="ico i5"></div>
+		<span style="line-height: 22px;font-size: 16px;">现金提现</span></a>
+</div>
+<div class="leftbottom">
+	<ul id="menu">
+		<!--{loop user_menu() $key=>$val}-->
+		<!--{if $this->user->gt_purview($key)&&$key!='main'}-->
+		<li>
+			<a href="javascript:;">
+				<div class="ico i_{$key}"></div>{$val}</a>
+			<ul id="menu_{$key}">
+				<!--{loop member_menu($key) $k=>$v}-->
+				<!--{if $this->user->rn_purview('member',$key,$k)}-->
+				<li>
+					<a href="{echo Purl("?mod=member&act=".$key."&type=".$k)}" {if $key==$_GET[ 'act']&&$k==$_GET[ 'type']}class="openlist" {/if}>
+						<div class="ico i_menu"></div>{$v}
+					</a>
+				</li>
+				<!--{/if}-->
+				<!--{/loop}-->
+				<div style="clear:both;"></div>
+			</ul>
+			<div style="clear:both;"></div>
+		</li>
+		<!--{/if}-->
+		<!--{/loop}-->
+		<div style="clear:both;"></div>
+	</ul>
+	<div style="clear:both;"></div>
+</div>

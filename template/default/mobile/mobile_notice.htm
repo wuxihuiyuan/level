@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>系统公告</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {template ../common}
+    {style {self tempdir}css/common.css}
+    {style {self tempdir}css/style.css}
+    {script {self tempdir}js/common.js}
+    {script {self tempdir}js/jquery-1.8.3.js}
+    {script {self tempdir}js/notice.js}
+  </head>
+  <body>
+  <div class="pb80">
+    <div class="tab-head">
+      发现
+    </div>
+    <div class="tab-wrap clearBoth">
+      <ul class="tab-title">
+        <li class="tab-title-on">所有公告</li>
+        {loop $this->newstype $val}
+        <li>{$val['typename']}</li>
+        {/loop}
+      </ul>
+    </div>
+
+    <script>
+    var countNewstype = {self countNewsType};
+    var li = document.querySelectorAll(".tab-title li");
+    for(var i=0;i<li.length;i++){
+      li[i].style.width = 100/countNewstype+"%"
+    }
+    </script>
+    <div class="tab-content not_tab">
+      <div class="notice-list" style="display: block">
+      {loop $this->record $value}
+      <a href="{$value['detailurl']}">
+        <div class="one_img">
+          <h1 class="notice-title" style="display: inline;color: black">{$value['title']}</h1>
+          {if $value['imgurl']}
+          <div class="not-img-list" style="float: right;">
+            <img src="{$value['imgurl']}" class="not-img-item one-img-item">
+          </div>
+          {/if}
+          <div class="one-img-time">
+            <span class="not-type" style="margin-top: 10px;">{$value['typename']}</span>
+            <p class="not-time clear-float">{$value['addtime']}</p>
+            <div class="not-view clear-float" style="display: block;">{$value['clicknumber']}</div>
+          </div>
+        </div>
+      </a>
+      {/loop}
+      </div>
+      {loop $this->newstype $val}
+      <div class="notice-list">
+        {loop $this->record $value}
+        {if $value['typeid'] == $val['id']}
+        <a href="{$value['detailurl']}">
+        <div class="one_img">
+          <h1 class="notice-title" style="display: inline;color: black">{$value['title']}</h1>
+          <div class="not-img-list" style="float: right;">
+            <img src="{$value['imgurl']}" class="not-img-item one-img-item">
+          </div>
+          <div class="one-img-time">
+            <span class="not-type" style="margin-top: 10px">{$value['typename']}</span>
+            <p class="not-time clear-float">{$value['addtime']}</p>
+            <div class="not-view clear-float" style="display: block">{$value['clicknumber']}</div>
+          </div>
+        </div>
+        </a>
+        {/if}
+      {/loop}
+      </div>
+    {/loop}
+    </div>
+  </div>
+   {template mobile_footer}
+  </body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 会员登录</title>
+{template mobile_common}
+{script {self tempdir}js/guestbook.js}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">意见反馈</span> <a href="{url mobile_user}" class="nobg _right">会员中心</a> </nav>
+</header>
+<div class="viewport form">
+  <form action="" id="form1" method="post" onSubmit="return checkform()">
+    <textarea name="message" id="message" onBlur="checkmessage()" placeholder="请输入你要告诉我们的话，尽量长话短说！" class="guestbook"></textarea>
+    <p class="tips" id="messagetip"></p>
+    {form('submit','确认提交','submit')}
+  </form>
+</div>
+{template mobile_footnav}
+</body>
+</html>

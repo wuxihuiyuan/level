@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 会员登录</title>
+{template mobile_common}
+{script {self appdir}wScratchPad.js,{self tempdir}js/scratchcard.js}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">刮刮卡</span> <a href="{url mobile_user}" class="nobg _right">会员中心</a> </nav>
+</header>
+<div class="viewport">
+  <div class="cover"> <img src="http://stc.weimob.com/img/web_bb/activity/activity-scratch-card-bannerbg.png">
+    <div id="prize">谢谢参与</div>
+    <div id="scratchpad"></div>
+  </div>
+</div>
+{template mobile_footnav}
+</body>
+</html>

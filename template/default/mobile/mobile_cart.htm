@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{config sitename} - 我的餐车</title>
+{template mobile_common}
+{script {self tempdir}js/cart.js}
+</head>
+<body>
+<header class="header">
+  <nav> <a href="javascript:history.back();" class="back">返回</a> <span class="title">我的餐车</span> <a class="delete _right" href="javascript:emptyCart();">清空</a> </nav>
+</header>
+<div class="viewport">
+  <div class="newList_view" {if !is_array($this->cartlist)}style="display:none;"{/if}>
+    <!--{loop $this->cartlist $value}-->
+    <!--{eval $egmoney = formatnum($value['goods_money']*$value['goods_number']);}-->
+    <!--{eval $money += $egmoney;}-->
+    <div class="newList cartlist" id="_order_goods_{$value['cart_id']}">
+      <div class="content">
+        <div class="name">{$value['goods_name']} <strong>单价：¥<b id="_order_unitmoney_{$value['cart_id']}">{$value['goods_money']}</b></strong></div>
+        <div class="price">
+          <div>
+            <span class="minus" onClick="_order_number('-1','{$value['cart_id']}')"></span>
+            <span class="number" id="_number_{$value['cart_id']}">{$value['goods_number']}</span>
+            <span class="add" onClick="_order_number('1','{$value['cart_id']}')"></span>
+            <span class="delete" onClick="_order_delete('{$value['cart_id']}')"></span>
+          </div>
+          <strong>小计：¥<b id="_order_egmoney_{$value['cart_id']}">{$egmoney}</b></strong>
+        </div>
+      </div>
+    </div>
+    <!--{/loop}-->
+    <!--{eval $balance = formatnum($money*$this->member['usergroup']['balance']);}-->
+    <p class="charttigs">
+     <!--{if is_array($this->member)}-->
+       <strong>{member username}({member groupname})</strong>本次订餐可获取<strong id="total_balance">{$balance}</strong>积分。
+     <!--{else}-->
+       未登陆订餐不能得积分，请<a href="{echo Loginurl('mobile')}">登录</a>或<a href="{url member_register}">注册</a>。
+     <!--{/if}-->
+    </p>
+    <div class="form">
+     <form action="" id="form1" method="post" onSubmit="return checkform()" style="margin-left:0; margin-right:0; margin-bottom:4em;">
+       <input type="text" id="truename" name="truename" onBlur="checktruename()" value="{member truename}" placeholder="请输入你的姓或名，如张先生">
+       <p class="tips" id="truenametip"></p>
+       <input type="text" id="phone" name="phone" onBlur="checkphone()" value="{member userphone}"  placeholder="请输入手机号码">
+       <p class="tips" id="phonetip"></p>
+       <input type="text" id="address" name="address" onBlur="checkaddress()" value="{member address}"  placeholder="请输入送餐地址">
+       <p class="tips" id="addresstip"></p>
+       <textarea name="message" id="message" onBlur="checkmessage()" placeholder="例如：不要太辣，少放点葱！"></textarea>
+       <p class="tips" id="messagetip"></p>
+       <div class="ordersend">{form('submit','提交订餐','submit')}<span><b>订餐总额：</b>¥<em id="total_money">{echo formatnum($money)}</em></span></div>
+     </form>
+    </div>
+  </div>
+  <div class="tips_view mitu_01" {if is_array($this->cartlist)}style="display:none;"{/if}>
+    <div class="tips_msg">
+      <h3>你的餐车空空如也</h3>
+      <p>现在就去选选餐吧</p>
+    </div>
+    <div class="tips_btn"><a href="{url mobile_food}" class="button disable_button">去选餐</a></div>
+  </div>
+</div>
+</div>
+{template mobile_footnav}
+</html>

@@ -1,0 +1,234 @@
+{template mobile_header}
+<div id="main">
+  <div class="left">{template mobile_left}</div>
+  <div class="right">
+    <div class="opencard_main">
+      <!--{if $_GET['type']=='upgroup'}-->
+      <div class="opencards_title">
+        <div class="opencards_title_b">会员升级</div>
+      </div>
+      <div class="order-prompt order-promptbommton">会员点位升级，升级后您将享受更高的奖励制度，更好的实施您的发财大计！</div>
+      <div class="opencard_box">
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 您的账户</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile username}</span>
+            <input name="mymoney" id="mymoney" type="hidden" value="{mobile money}"/>
+          </div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 当前级别</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile groupname}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 要升级到</div>
+          <div class="opencard_input_box">{form('groupid','','select',{self usergroup},'onchange=\'checkgroupid()\'')} <span class="tips" id="groupidtip"></span></div>
+        </div>
+        <div class="opencard_button_box">{form('opcardbutton','确认','submit','','onclick=\'checkform()\'')}</div>
+      </div>
+      <!--{/if}-->
+      <!--{if $_GET['type']=='register'}-->
+      <div class="opencards_title">
+        <div class="opencards_title_b">注册会员</div>
+        <div class="opencards_title_a">提示：<span class="text_x_12px">*</span> 为必填项目！</div>
+      </div>
+      <div class="order-prompt order-promptbommton"><span></span>会员账号只能以字母开头，且仅可使用字母、汉字、数字和下划线，会员账号最好以爱真情昵称一致、邮箱、手机号码、QQ号码、身份证号码与爱真情对应资料一致且认证通过不得修改！</div>
+      <div class="opencard_box">
+       <form id="ajaxformbox" name="ajaxformbox" method="post" onsubmit="return checkform();">
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 会员账户</div>
+          <div class="opencard_input_box"><input name="username" id="username" class="myinput data" type="text" value="" onblur="checkusername()"/>
+                <input name="mymoney" id="mymoney" type="hidden" value="{mobile regmoney}"/>
+                <span class="tips" id="usernametip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 会员姓名</div>
+          <div class="opencard_input_box"><input type="text" size="20" value="" class="myinput data" id="truename" name="truename" onblur="checktruename()" />
+                 <span class="tips" id="truenametip"></span></div>
+        </div>
+        
+        
+                <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px"></span> 电子邮箱</div>
+          <div class="opencard_input_box"><input type="text" size="20" value="" class="myinput data" id="email" name="email" onblur="checkemail()" />
+                 <span class="tips" id="emailtip"></span></div>
+        </div>
+        
+                <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 手机号码</div>
+          <div class="opencard_input_box">
+          <input type="text" size="20" value="" class="myinput data" id="userphone" name="userphone" onblur="checkuserphone()" />
+                 <span class="tips" id="userphonetip"></span></div>
+        </div>
+
+
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px"></span> 身份证号</div>
+          <div class="opencard_input_box">
+          <input type="text" size="30" name="idcard" id="idcard" value="" class="myinput data" onblur="checkidcard()"/>
+          <span class="tips" id="idcardtip"></span></div>
+       </div>
+       
+       <div class="opencard_h opencard_h50">
+          <div class="opencard_text"> <span class="text_x_12px"></span>联系QQ</div>
+          <div class="opencard_input_box">
+          <input type="text" size="30" name="qq" id="qq" value="" class="myinput data" onblur="checkqq()"/>
+          <span class="tips" id="qqtip"></span></div>
+       </div>
+
+       <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 开通状态</div>
+          <div class="opencard_input_box">{form('nowopen','','select','[<><请选择...>][<1><现在立马开通会员>][<0><先提交稍后开通>]','onchange=\'checknowopen()\'')} 
+          <span class="tips" id="nowopentip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 会员级别</div>
+          <div class="opencard_input_box">{form('groupid','','select',{self usergroup},'onchange=\'checkgroupid()\'')} <span class="tips" id="groupidtip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 节点会员</div>
+
+          <div class="opencard_input_box"><input type="text" size="20" value="{self _referee['username']}" class="myinput data" id='_referee' name="_referee"  onblur="check_referee()"/>
+                 <span class="tips" id="_refereetip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 直荐会员</div>
+          <div class="opencard_input_box"><input type="text" size="20" value="" class="myinput data" id="referee" name="referee" onblur="checkreferee()" />
+                 <span class="tips" id="refereetip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 节点位置</div>
+          <div class="opencard_input_box">{form('position',$_GET['position'],'radio','[<left><左区>][<centre><中区>][<right><右区>]')}
+                 <span class="tips" id="positiontip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 登陆密码</div>
+          <div class="opencard_input_box"><input type="text" value="love123456" name="password" id="password" class="myinput data" onblur="checkpassword()"/>
+                  <span class="tips" id="passwordtip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 支付密码</div>
+          <div class="opencard_input_box"><input type="text" value="love654321" name="_repass" id="_repass" class="myinput data" onblur="checkrepass()"/>
+                 <span class="tips" id="_repasstip"></span></div>
+        </div>
+        <div class="opencard_h opencard_h50">
+          <div class="opencard_text"> 报单中心</div>
+          <div class="opencard_input_box"><input type="text" size="30" name="service" id="service" class="myinput data" onblur="checkservice()"/>
+                 <span class="tips" id="servicetip"></span></div>
+        </div>
+        <div class="opencard_button_box">{form('opcardbutton','确认','submit')}</div>
+        </form>
+      </div>
+      <!--{/if}-->
+      <!--{if $_GET['type']=='customs'}-->
+      <div class="opencards_title">
+        <div class="opencards_title_b">报单中心</div>
+      </div>
+      <!--{if $this->mobile['service']}-->
+      <div class="order-prompt order-promptbommton">您好尊敬的报单中心“{mobile servicename}”，你将会获得帮别人报单的奖励。</div>
+      <div class="opencard_box">
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 会员账号</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile username}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 中心名称</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile servicename}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 所在地区</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile serviceaddress}</span></div>
+        </div>
+      </div>
+      <!--{else}-->
+      <div class="order-prompt order-promptbommton">申请成为报单中心后，你将会获得报单的奖励，申请需要后台管理员审核。</div>
+      <div class="opencard_box">
+        <!--{if is_array($this->customs)}-->
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 申请会员</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile username}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 中心名称</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile servicename}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 所在地区</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile serviceaddress}</span></div>
+        </div>
+        <div class="opencard_button_box">已经提交报单中心申请，请等待管理员审核</div>
+        <!--{else}-->
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 申请会员</div>
+          <div class="opencard_input_box"><span class="dis-input">{mobile username}</span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 中心名称</div>
+          <div class="opencard_input_box"><input type="text" size="20" class="myinput" id="name" name="name" onblur="checkname()" />
+                 <span class="tips" id="nametip"></span></div>
+        </div>
+        <div class="opencard_h">
+          <div class="opencard_text"><span class="text_x_12px">*</span> 所在地区</div>
+          <div class="opencard_input_box"><input type="text" size="20" class="myinput" id="address" name="address" onblur="checkaddress()" />
+                 <span class="tips" id="addresstip"></span></div>
+        </div>
+        <div class="opencard_button_box">{form('opcardbutton','确认','submit','','onclick=\'checkform()\'')}</div>
+        <!--{/if}-->
+      </div>
+      <!--{/if}-->
+      <!--{/if}-->
+      <!--{if $_GET['type']=='list'}-->
+      <div class="opencards_title">
+        <div class="opencards_title_b">我的会员</div>
+      </div>
+      <div class="mobile_mian">
+        <form method="GET" action="">
+          <input type="hidden" name="mod" id="mod" value="{$_GET['mod']}" />
+          <input type="hidden" name="act" id="act" value="{$_GET['act']}" />
+          <input type="hidden" name="type" id="type" value="{$_GET['type']}" />
+          <input type="hidden" name="method" id="method" value="{$_GET['method']}" />
+          <div class="ex_find">
+            <div class="ex_text">注册日期</div>
+            <div class="ex_time_box">{form('time',$this->time_str,'datas')}</div>
+            <div class="ex_button_box">
+              <input type="submit" id="button" value="查&nbsp;&nbsp;询" class="find_button" />
+            </div>
+          </div>
+        </form>
+        <div class="info_bg">
+          <div class="info_text">查询统计：总共有 <b class="text_red_line">{self pagetotal}</b> 条记录</div>
+        </div>
+        <table class="sheet">
+          <tr>
+            <th>会员编号</th>
+            <th>会员账号</th>
+            <th>会员级别</th>
+            <th>推荐人数</th>
+            <th>市场人数</th>
+            <th>注册时间</th>
+            <th>开通状态/时间</th>
+          </tr>
+          <!--{loop $this->record $value}-->
+          <tr class="mybg">
+            <td>{$value['uid']}</td>
+            <td>{$value['username']}</td>
+            <td>{$value['groupname']}</td>
+            <td>{$value['renumber']}</td>
+            <td>左：{$value['left']}  中：{$value['centre']} 右：{$value['right']}</td>
+            <td>{echo formattime($value['regtime'])}</td>
+            <td>{if $value['status']}{echo formattime($value['opentime'])}{else}<span buymoney="{$value['usergroup']['buymoney']}" uid="{$value['uid']}" class="nowopen">未开通，点击开通</span>{/if}</td>
+          </tr>
+          <!--{/loop}-->
+        </table>
+        <!--{if !is_array($this->record)}-->
+        <div class="no_info"><span class="no_info_ico"></span>暂无任何记录</div>
+        <!--{/if}-->
+        <!--{if $this->newpage}-->
+        <div class="pages">{self newpage}</div>
+        <!--{/if}-->
+      </div>
+      <!--{/if}-->
+    </div>
+  </div>
+</div>
+</div>
+{template mobile_footer}
