@@ -1,4 +1,0 @@
-
-清空数据库,请把   mod_index.测试用的   文件夹下的 mod_index.php  放入程序根目录中，点击http://你的网址域名/index.php?mod=index&act=emptydb&password=309091579    进行初始化
-
-正式营运的时候，把  mod_index.正式用的  覆盖 到根目录下相应文件
